@@ -4,7 +4,7 @@ from webapp.views import *
 
 urlpatterns = [
     #     url adress  views
-    path('home',home),
+    path('',home),
     path('about',about),
     path('contact',contact)
     

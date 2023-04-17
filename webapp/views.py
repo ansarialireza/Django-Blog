@@ -3,9 +3,9 @@ from django.shortcuts import render
 from django.http import HttpResponse,JsonResponse
 
 def home(request):
-    return HttpResponse("Home")
+    return render(request,'website/index.html')
 
 def about(request):
-    return HttpResponse("I am Alireza Ansari , I am a programmer ;)")
+    return render(request,'website/about.html')
 def contact(request):
-    return JsonResponse({"alireza":"ansari"},{"number":"09172215452"})
+    return render(request,'website/contact.html')
