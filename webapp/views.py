@@ -4,7 +4,7 @@ from django.http import HttpResponse, JsonResponse
 
 
 def home(request):
-    return render(request, 'website/home.html')
+    return render(request, 'website/index.html')
 
 
 def about(request):
@@ -13,3 +13,7 @@ def about(request):
 
 def contact(request):
     return render(request, 'website/contact.html')
+
+
+def elements(request):
+    return render(request, 'website/elements.html')
