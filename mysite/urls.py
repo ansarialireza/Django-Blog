@@ -22,7 +22,8 @@ from django.conf import settings
 urlpatterns = [
     # url adress  views
     path('admin/', admin.site.urls),
-    path('', include('webapp.urls'))
+    path('', include('webapp.urls')),
+    path('blog/', include('blog.urls')),
 
 ]
 

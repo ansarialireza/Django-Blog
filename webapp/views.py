@@ -1,7 +1,5 @@
 from django.shortcuts import render
 
-from django.http import HttpResponse, JsonResponse
-
 
 def home(request):
     return render(request, 'website/index.html')
@@ -17,3 +15,7 @@ def contact(request):
 
 def elements(request):
     return render(request, 'website/elements.html')
+
+
+def test_view(request):
+    return render(request, 'website/test.html')
