@@ -15,7 +15,3 @@ def contact(request):
 
 def elements(request):
     return render(request, 'website/elements.html')
-
-
-def test_view(request):
-    return render(request, 'website/test.html')
