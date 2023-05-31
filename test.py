@@ -1,9 +1,10 @@
+import hmac
+import hashlib
 
-def divar(a, b):
-    return a % b
+key = b'my-secret-key'
+message = b'my-message'
 
+h = hmac.new(key, message, hashlib.sha256)
+result = h.hexdigest()
 
-a = int(input())
-b = int(input())
-result = divar(a, b)
 print(result)
