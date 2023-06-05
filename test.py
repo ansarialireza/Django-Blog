@@ -1,10 +1,18 @@
-import hmac
-import hashlib
+shoping_list = list()
+wrong_words = ("ex", "exit", "quit")
 
-key = b'my-secret-key'
-message = b'my-message'
 
-h = hmac.new(key, message, hashlib.sha256)
-result = h.hexdigest()
+def sotsl():
+    for item in shoping_list:
+        print(item)
 
-print(result)
+
+while True:
+    item = input("Enter Items ")
+    clean_item = item.lower()
+
+    if item in wrong_words:
+        sotsl()
+        break
+    else:
+        shoping_list.append(item)
