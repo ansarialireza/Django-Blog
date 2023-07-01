@@ -110,11 +110,11 @@
                 <a href="#">Mark wiens</a> <span class="lnr lnr-user"></span>
               </p>
               <p class="date col-lg-12 col-md-12 col-6">
-                <a href="#">{{post.published_date}}</a>
+                <a href="#">{{Post.published_date}}</a>
                 <span class="lnr lnr-calendar-full"></span>
               </p>
               <p class="view col-lg-12 col-md-12 col-6">
-                <a href="#">{{post.counted_views}}</a>
+                <a href="#">{{Post.counted_views}}</a>
                 <span class="lnr lnr-eye"></span>
               </p>
               <p class="comments col-lg-12 col-md-12 col-6">
@@ -130,8 +130,8 @@
                 alt=""
               />
             </div>
-            <a class="posts-title" href="blog-single.html"
-              ><h3>{{post.title}}</h3></a
+            <a class="posts-title" href="/blog/post-{{Post.id}}">
+              <h3>{{post.title}}</h3></a
             >
             <p class="excert">{{post.content}}</p>
             <a href="blog-single.html" class="primary-btn">View More</a>
