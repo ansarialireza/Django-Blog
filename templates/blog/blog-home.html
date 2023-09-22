@@ -126,8 +126,8 @@
             <div class="feature-img">
               <img
                 class="img-fluid"
-                src="{% static 'img/blog/feature-img1.jpg'%}"
-                alt=""
+                src="{{ post.image.url }}" 
+                alt="{{ post.title }}"
               />
             </div>
             <a class="posts-title" href="/blog/post-{{post.id}}">

@@ -10,7 +10,7 @@ class Post(models.Model):
     updated_date = models.DateTimeField(auto_now=True)
     author = models.ForeignKey('Author', on_delete=models.SET_NULL, null=True)  # Add author as a foreign key
     counted_comment = models.IntegerField(default=0)
-    
+    image = models.ImageField(upload_to='post_images/') 
     class Meta:
         ordering = ['-created_date']
 

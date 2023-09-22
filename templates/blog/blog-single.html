@@ -29,8 +29,8 @@
             <div class="feature-img">
               <img
                 class="img-fluid"
-                src="{% static 'img/blog/feature-img1.jpg' %}"
-                alt=""
+                src="{{ post.image.url }}"
+                alt="{{ post.title }}"
               />
             </div>
           </div>
@@ -126,13 +126,17 @@
             <div
               class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center"
             >
-              <div class="thumb">
-                <a href="#"
+            <div class="thumb">
+                {% if previous_post %}
+                <a href="{% url 'blog:single' previous_post.pk %}"
                   ><img
-                    class="img-fluid"
-                    src="{% static 'img/blog/prev.jpg' %}"
-                    alt=""
+                  class="img-fluid"
+                  src="{{ next_post.image.url }}"
+                  alt=""
+                  width="60"
+                  height="60"
                 /></a>
+                {% endif %}
               </div>
               <div class="arrow">
                 {% if previous_post %}
@@ -172,13 +176,16 @@
               </div>
               <div class="thumb">
                 {% if next_post %}
-                <a href="{% url 'blog:single' next_post.pk %}"
+                <a href="{% url 'blog:single' next_post.pk %}">
+                    <img
+                        class="img-fluid"
+                        src="{{ next_post.image.url }}"
+                        alt=""
+                        width="60"
+                        height="60"
+                    />
+                </a>
                 {% endif %}
-                  ><img
-                    class="img-fluid"
-                    src="{% static 'img/blog/next.jpg' %}"
-                    alt=""
-                /></a>
               </div>
             </div>
           </div>
