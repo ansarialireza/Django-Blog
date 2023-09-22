@@ -135,13 +135,21 @@
                 /></a>
               </div>
               <div class="arrow">
-                <a href="#"
+                {% if previous_post %}
+                <a href="{% url 'blog:single' previous_post.pk %}"
+                {% endif %}
                   ><span class="lnr text-white lnr-arrow-left"></span
                 ></a>
               </div>
               <div class="detials">
+                {% if previous_post %}
                 <p>Prev Post</p>
-                <a href="#"><h4>Space The Final Frontier</h4></a>
+                <a href="{% url 'blog:single' previous_post.pk %}">
+                    <h4>{{ previous_post.title }}</h4>
+                </a>
+                {% else %}
+                    <p>No previous post</p>
+                {% endif %}
               </div>
             </div>
             <div
@@ -149,7 +157,13 @@
             >
               <div class="detials">
                 <p>Next Post</p>
-                <a href="#"><h4>Telescopes 101</h4></a>
+                {% if next_post %}
+                <a href="{% url 'blog:single' next_post.pk %}">
+                    <h4>{{ next_post.title }}</h4>
+                </a>
+                {% else %}
+                    <p>No next post</p>
+                {% endif %}
               </div>
               <div class="arrow">
                 <a href="#"
@@ -157,7 +171,9 @@
                 ></a>
               </div>
               <div class="thumb">
-                <a href="#"
+                {% if next_post %}
+                <a href="{% url 'blog:single' next_post.pk %}"
+                {% endif %}
                   ><img
                     class="img-fluid"
                     src="{% static 'img/blog/next.jpg' %}"
