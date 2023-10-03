@@ -2994,10 +2994,15 @@ body.mobile-nav-active #mobile-nav-toggle {
   }
 }
 
+.recent-blog-area .single-recent-blog-post .thumb img {
+  width: 360px;
+  height: 260px;
+  transition: transform 0.3s; /* Add a smooth transition effect */
+}
+
 .recent-blog-area .single-recent-blog-post:hover .thumb img {
   transform: scale(1.05);
 }
-
 /*--------- end recent-blog Area -------------*/
 /*-------- Start Common Page Style   -------------*/
 .link-nav {
