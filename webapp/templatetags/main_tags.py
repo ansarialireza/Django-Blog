@@ -8,4 +8,4 @@ register = template.Library()
 def display_latest_posts():
     current_time = timezone.now()
     posts=Post.objects.filter(status=1,published_date__lte=current_time).order_by('-published_date')[0:6]
-    return {'posts':posts}
+    return {'posts':posts}  
