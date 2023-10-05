@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
+
 
 class Category(models.Model):
     name=models.CharField(max_length=31)
@@ -24,4 +26,8 @@ class Post(models.Model):
 
     def __str__(self):
         return "{}-{}".format(self.title, self.id)
-
+    
+    def get_absolute_url(self):
+        # Replace 'your_model_detail_url_name' with the name of the URL pattern
+        # you've defined in your project's URL configuration for this model's detail view.
+        return reverse('blog:single',kwargs={'pid': self.id})
