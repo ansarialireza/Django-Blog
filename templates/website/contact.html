@@ -90,7 +90,6 @@
               onfocus="this.placeholder = ''"
               onblur="this.placeholder = 'Enter subject'"
               class="common-input mb-20 form-control"
-              required=""
               type="text"
             />
           
@@ -115,6 +114,17 @@
             </div>
           </div>
         </form>
+        <!-- {% if messages %}
+        <div class="messages">
+            <ul class="list-unstyled">
+                {% for message in messages %}
+                <li class="alert alert-{{ message.tags }} mb-2" role="alert">
+                    {{ message }}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %} -->
       </div>
     </div>
   </div>

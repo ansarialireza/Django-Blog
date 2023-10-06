@@ -79,6 +79,8 @@
       </div>
     </header>
     <!-- #header -->
+    {% include 'website/messages.html' %}
+
     {% block content %} {% endblock content %}
 
     <!-- start footer Area -->
@@ -148,13 +150,13 @@
                   </div>
                   <div class="mt-10 info"></div>
                 </form>
-                {% if messages %}
+                <!-- {% if messages %}
                 <ul class="messages">
                     {% for message in messages %}
                     <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
                     {% endfor %}
                 </ul> 
-                {% endif %}
+                {% endif %} -->
               </div>
             </div>
           </div>
@@ -199,7 +201,14 @@
       </div>
     </footer>
     <!-- End footer Area -->
-
+    <script>
+      setTimeout(function(){
+        if ($('#msg').length > 0){
+          $('#msg').remove();
+        }
+      },2000)
+    </script>
+    
     <script src="{%static  'js/vendor/jquery-2.2.4.min.js' %}"></script>
     <script src="{%static  'js/popper.min.js' %}"></script>
     <script src="{%static  'js/vendor/bootstrap.min.js' %}"></script>

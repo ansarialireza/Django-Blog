@@ -15,12 +15,11 @@ def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            # Save the form data to the database
-            form.save()
-            # Redirect to a thank you page or any other appropriate page
-            return HttpResponse("Form submitted successfully")
-        
-
+            contact = form.save(commit=False) 
+            contact.name = 'Anonymous' 
+            contact.save()
+            messages.success(request,'Submitted correctly')
+            return HttpResponseRedirect('/contact')
     else:
         form = ContactForm()
 
@@ -31,13 +30,11 @@ def newsletter(request):
         form = NewsletterForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.add_message(request, messages.SUCCESS, "Thank you for subscribing!")
+            messages.success(request,'Sent !')
             return HttpResponseRedirect('/')
         else:
-            # Handle form errors and add custom messages
             for field, errors in form.errors.items():
                 for error in errors:
-                    # Add a custom error message to the messages framework
                     messages.add_message(request, messages.ERROR, f"Form error for field {field}: {error}")
     else:
         form = NewsletterForm()
