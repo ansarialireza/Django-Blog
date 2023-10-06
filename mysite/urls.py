@@ -21,7 +21,7 @@ from webapp.views import *
 from django.contrib.sitemaps.views import sitemap
 from webapp.sitemaps import StaticViewSitemap
 from blog.sitemaps import BlogSitemap
-
+from django.views.generic import TemplateView
 sitemaps = {
     "static": StaticViewSitemap,
     'blog': BlogSitemap
@@ -39,6 +39,9 @@ urlpatterns = [
         {"sitemaps": sitemaps},
         name="django.contrib.sitemaps.views.sitemap",
     ),
+    path('robots.txt', include('robots.urls')),
+    
+    
 
 ]
 
