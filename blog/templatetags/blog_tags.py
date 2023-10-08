@@ -1,5 +1,5 @@
 from django import template
-from blog.models import Post,Category
+from blog.models import Post,Category,Comment
 register = template.Library()
 
 @register.simple_tag(name='totalposts')
@@ -30,3 +30,7 @@ def postcategories():
         cat_dict[name]=posts.filter(category=name).count()
     return{'categories':cat_dict}
 
+
+@register.simple_tag(name='comment_count')
+def function(pid):
+    return Comment.objects.filter(post=pid, approved=True).count()

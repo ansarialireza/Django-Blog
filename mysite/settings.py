@@ -26,6 +26,8 @@ ROBOTS_USE_HOST = False
 
 # Application definition
 INSTALLED_APPS = [
+    'multi_captcha_admin',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -34,12 +36,20 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'webapp.apps.WebappConfig',
     'blog',
+
     'django.contrib.humanize',
     'django_extensions',
     'django.contrib.sites',
     'django.contrib.sitemaps',
     'robots',
+    'taggit',
+    'django_summernote',
+    'captcha',
 ]
+
+MULTI_CAPTCHA_ADMIN = {
+    'engine': 'simple-captcha',
+}
 
 # Middleware configuration
 MIDDLEWARE = [
@@ -134,3 +144,7 @@ MESSAGE_TAGS = {
     messages.WARNING: 'alert-warning',
     messages.ERROR: 'alert-danger',
 }
+
+X_FRAME_OPTIONS = "SAMEORIGIN"
+
+

@@ -20,6 +20,8 @@ def contact(request):
             contact.save()
             messages.success(request,'Submitted correctly')
             return HttpResponseRedirect('/contact')
+        else:
+            messages.error(request,'shet!!!!!!!')
     else:
         form = ContactForm()
 
