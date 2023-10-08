@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'webapp.apps.WebappConfig',
     'blog',
+    'accounts',
 
     'django.contrib.humanize',
     'django_extensions',
@@ -146,5 +147,4 @@ MESSAGE_TAGS = {
 }
 
 X_FRAME_OPTIONS = "SAMEORIGIN"
-
 

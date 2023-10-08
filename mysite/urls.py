@@ -33,6 +33,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('webapp.urls')),
     path('blog/', include('blog.urls')),
+    path('', include('accounts.urls')),
     path(
         "sitemap.xml",
         sitemap,

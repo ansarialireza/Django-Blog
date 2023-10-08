@@ -59,7 +59,7 @@ def blog_single(request, pid):
             # Clear the form to prevent resubmission on page reload
             return redirect(request.path_info)
         else:
-            messages.error(request, 'Oops, there was an error in the form submission!')
+            messages.error(request, 'Oops, there was an error in the form submission!') 
     else:
         comment_form = CommentForm()
 
