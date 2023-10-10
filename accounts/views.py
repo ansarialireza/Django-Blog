@@ -47,8 +47,9 @@ def login_view(request):
         
         if user is not None:
             login(request, user)
-            messages.success(request, 'Login successful. Welcome back!')
+            messages.success(request, 'Login successful. Welcome !')
             return redirect('/')  # Redirect to the home page or dashboard upon successful login
+        
         else:
             # Handle invalid login credentials here, e.g., display an error message
             messages.error(request, 'Invalid login credentials. Please try again.')
