@@ -2,7 +2,7 @@
 from django.urls import path
 from . import views
 from django.contrib.auth import views as auth_views
-from .forms import CustomPasswordResetForm  # Import your custom form
+from .forms import CustomPasswordResetForm
 
 app_name = 'accounts'
 
