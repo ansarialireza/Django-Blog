@@ -34,8 +34,8 @@ def signup_view(request):
 def login_view(request):
     if request.user.is_authenticated:
         # User is already logged in, redirect to the home page or dashboard
-        messages.success(request, 'You are logged in')
-        return redirect('/')  # Replace 'home' with the URL name of your desired destination
+        messages.success(request, 'You are already logged in.')
+        return redirect('/')  # Replace '/' with the URL name of your desired destination
 
     if request.method == 'POST': 
         # Handle login form submission
@@ -47,13 +47,13 @@ def login_view(request):
         
         if user is not None:
             login(request, user)
+            messages.success(request, 'Login successful. Welcome back!')
             return redirect('/')  # Redirect to the home page or dashboard upon successful login
         else:
             # Handle invalid login credentials here, e.g., display an error message
             messages.error(request, 'Invalid login credentials. Please try again.')
 
     return render(request, 'registration/login.html')
-
 
 def logout_view(request):
     logout(request)
