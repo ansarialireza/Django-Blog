@@ -46,7 +46,7 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     messages.success(request, 'You have successfully logged out.')
-    return redirect('/login') 
+    return redirect('/') 
 
 def home_view(request):
     return render(request, 'website/index.html')
