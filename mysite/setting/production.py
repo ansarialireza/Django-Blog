@@ -3,8 +3,8 @@ import secrets
 from .base import *
 
 # Override settings for production
-# DEBUG = False
-ALLOWED_HOSTS = ['ansrza.ir']
+DEBUG = False
+ALLOWED_HOSTS = ['ansrza.ir','www.ansrza.ir',]
 # Set database, secret key, and other production-specific settings here
 SECURE_HSTS_SECONDS = 31536000  # Example: One year in seconds
 SECURE_SSL_REDIRECT = True
