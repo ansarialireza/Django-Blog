@@ -8,28 +8,24 @@ SECRET_KEY = 'django-insecure-o-k&e=42c8kvzz+58m96on3-u!ea-x7v*yv*na3e!o^r@po-6)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['thealibigdeli.ir','www.thealibigdeli.ir']
+ALLOWED_HOSTS = ['ansrza.ir','www.ansrza.ir']
 
 #INSTALLED_APPS = []
 
 
 # sites framework
-SITE_ID = 2
+SITE_ID = 3
 
 
 DATABASES = {
-   'default': {
-       'ENGINE': 'django.db.backends.mysql',
-       'NAME': 'thealib2_travel',
-       'USER': 'thealib2_ali',
-       'PASSWORD': 'S^AQ#7Y,P36e',
-       'HOST': 'localhost',
-       'PORT': '3306',
-   }
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
-STATIC_ROOT = '/home/thealib2/public_html/static'
-MEDIA_ROOT = '/home/thealib2/public_html/media'
+STATIC_ROOT = '/home/ansrzair/public_html/static'
+MEDIA_ROOT = '/home/ansrzair/public_html/media'
 STATICFILES_DIRS = [
     BASE_DIR / "statics",
 ]
