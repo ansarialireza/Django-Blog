@@ -155,17 +155,3 @@ AUTHENTICATION_BACKENDS = [
     # ... other backends ...
 ]
 
-# Email configuration
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_USE_TLS = True
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_PORT = 587
-# EMAIL_HOST_USER = 'ansarialida@gmail.com'
-# EMAIL_HOST_PASSWORD = 'ansari1999'
-# # DEFAULT_FROM_EMAIL = 'ansarialida@gmail.com'
-# # SERVER_EMAIL = 'ansari1999@gmail.com'
-
-import os
-
-EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
-EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'email_output')
