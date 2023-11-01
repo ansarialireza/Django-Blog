@@ -8,21 +8,24 @@ SECRET_KEY = 'django-insecure-o-k&e=42c8kvzz+58m96on3-u!ea-x7v*yv*na3e!o^r@po-6)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ansrza.ir','www.ansrza.ir']
+ALLOWED_HOSTS = ['www.ansrza.ir','ansrza.ir']
 
 #INSTALLED_APPS = []
 
-TIME_ZONE = 'Asia/Tehran'
 
 # sites framework
-SITE_ID = 3
+SITE_ID = 2
 
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+   'default': {
+       'ENGINE': 'django.db.backends.mysql',
+       'NAME': 'ansrzair_travel',
+       'USER': 'ansrzair_alireza',
+       'PASSWORD': 'Ansari1999',
+       'HOST': 'localhost',
+       'PORT': '3306',
+   }
 }
 
 STATIC_ROOT = '/home/ansrzair/public_html/static'
@@ -30,7 +33,6 @@ MEDIA_ROOT = '/home/ansrzair/public_html/media'
 STATICFILES_DIRS = [
     BASE_DIR / "statics",
 ]
-
 
 SECURE_BROWSER_XSS_FILTER = True
 CSRF_COOKIE_SECURE =True

@@ -96,34 +96,13 @@ def custom_password_reset(request):
 
 
 def custom_password_reset_confirm(request, uidb64, token):
-    # You can add your custom logic here if needed, such as checking token expiration
-    # and verifying the user's identity.
-
     if request.method == 'POST':
-        # Get the user associated with the uidb64
         user = get_object_or_404(User, pk=uidb64)
-
-        # Check if the token is valid
-        
-        print('??????????????!!!!!!!!!!!!!!!')
         if default_token_generator.check_token(user, token):
-            # Process the password reset
             new_password = request.POST.get('new_password')
             user.set_password(new_password)
             user.save()
-
-            # Log the user in
-            # (You can add your custom logic here for login if needed)
-
-            # Add a success message
             messages.success(request, 'Password reset successful. You can now log in with your new password.')
-
-            # Debug: Add print statements
-            print(f'User ID: {uidb64}')
-            print(f'New Password: {new_password}')
-
-            # Redirect to a success page or login page
-            # (You can specify the URL as needed)
             return render(request, 'registration/custom_password_reset_complete.html')
 
     return PasswordResetConfirmView.as_view(
