@@ -37,5 +37,14 @@ STATICFILES_DIRS = [
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 
-EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
-EMAIL_FILE_PATH = BASE_DIR / "sent_emails"
+# EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+# EMAIL_FILE_PATH = BASE_DIR / "sent_emails"
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'mail.ansrza.ir'
+EMAIL_PORT = 465  # SMTP Port for SSL
+EMAIL_USE_SSL = True  # Use SSL for secure connection
+EMAIL_HOST_USER = 'alireza@ansrza.ir'
+EMAIL_HOST_PASSWORD = 'UppT8hcM6NfVyEH'
+DEFAULT_FROM_EMAIL = 'alireza@ansrza.ir'

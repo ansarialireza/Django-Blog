@@ -82,7 +82,7 @@ def custom_password_reset(request):
 
             subject = 'Password Reset'
             message = f'Use the following link to reset your password: {reset_url}'
-            from_email = 'ansari09165630639@gmail.com'  # Replace with your email
+            from_email = 'alireza@ansrza.ir'  # Replace with your email
             recipient_list = [email]
             send_mail(subject, message, from_email, recipient_list)
 
