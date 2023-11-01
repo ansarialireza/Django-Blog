@@ -12,6 +12,7 @@ ALLOWED_HOSTS = ['ansrza.ir','www.ansrza.ir']
 
 #INSTALLED_APPS = []
 
+TIME_ZONE = 'Asia/Tehran'
 
 # sites framework
 SITE_ID = 3

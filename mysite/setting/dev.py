@@ -11,7 +11,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['127.0.0.1',"localhost",]
 
 #INSTALLED_APPS = []
-
+TIME_ZONE = 'Asia/Tehran'
 
 # sites framework
 SITE_ID = 3
@@ -35,3 +35,7 @@ STATICFILES_DIRS = [
 
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
+
+
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+EMAIL_FILE_PATH = BASE_DIR / "sent_emails"

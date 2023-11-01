@@ -1,8 +1,20 @@
 # accounts/views.py
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect,get_object_or_404
 from django.contrib.auth import login, logout,authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
+from django.contrib.auth.models import User
+from django.contrib.auth.tokens import default_token_generator
+from django.contrib.auth.forms import PasswordResetForm
+from django.core.mail import send_mail
+from django.urls import reverse
+from django.contrib.auth.views import PasswordResetConfirmView
+from django.contrib import messages
+from django.core.exceptions import ObjectDoesNotExist
+from django.contrib.auth.tokens import default_token_generator
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 def signup_view(request):
     if request.user.is_authenticated:
@@ -48,33 +60,74 @@ def logout_view(request):
     messages.success(request, 'You have successfully logged out.')
     return redirect('/') 
 
-from django import forms
-from django.shortcuts import render, redirect
-from django.contrib.auth.forms import PasswordResetForm 
+
 
 def custom_password_reset(request):
     if request.method == 'POST':
         form = PasswordResetForm(request.POST)
         if form.is_valid():
-            # Handle the form submission here
-            # You can access the submitted data via form.cleaned_data
-            # For example, send a custom email or log the request
-            # After handling the reset, you can redirect to the password reset done view
+            email = form.cleaned_data['email']
+            try:
+                user = User.objects.get(email=email)
+            except ObjectDoesNotExist:
+                messages.error(request, 'Email not found. Please enter a valid email address.')
+                return redirect('accounts:password_reset')
+
+            # Generate a reset token and send the password reset email
+            token = default_token_generator.make_token(user)
+            uid = user.id
+            reset_url = reverse('accounts:custom_password_reset_confirm', args=[uid, token])
+
+            reset_url = request.build_absolute_uri(reset_url)
+
+            subject = 'Password Reset'
+            message = f'Use the following link to reset your password: {reset_url}'
+            from_email = 'ansari09165630639@gmail.com'  # Replace with your email
+            recipient_list = [email]
+            send_mail(subject, message, from_email, recipient_list)
+
             return render(request, 'registration/custom_password_reset_done.html')
     else:
         form = PasswordResetForm()
     
     return render(request, 'registration/custom_password_reset.html', {'form': form})
 
-# Other views for the password reset process
-def custom_password_reset_done(request):
-    # Customize the password reset done view if needed
-    return render(request, 'registration/custom_password_reset_done.html')
+
+
 
 def custom_password_reset_confirm(request, uidb64, token):
-    # Customize the password reset confirm view if needed
-    return render(request, 'registration/custom_password_reset_confirm.html')
+    # You can add your custom logic here if needed, such as checking token expiration
+    # and verifying the user's identity.
 
-def custom_password_reset_complete(request):
-    # Customize the password reset complete view if needed
-    return render(request, 'registration/custom_password_reset_complete.html')
+    if request.method == 'POST':
+        # Get the user associated with the uidb64
+        user = get_object_or_404(User, pk=uidb64)
+
+        # Check if the token is valid
+        
+        print('??????????????!!!!!!!!!!!!!!!')
+        if default_token_generator.check_token(user, token):
+            # Process the password reset
+            new_password = request.POST.get('new_password')
+            user.set_password(new_password)
+            user.save()
+
+            # Log the user in
+            # (You can add your custom logic here for login if needed)
+
+            # Add a success message
+            messages.success(request, 'Password reset successful. You can now log in with your new password.')
+
+            # Debug: Add print statements
+            print(f'User ID: {uidb64}')
+            print(f'New Password: {new_password}')
+
+            # Redirect to a success page or login page
+            # (You can specify the URL as needed)
+            return render(request, 'registration/custom_password_reset_complete.html')
+
+    return PasswordResetConfirmView.as_view(
+        template_name='registration/custom_password_reset_confirm.html',
+        success_url='/custom_password_reset/complete/'
+    )(request, uidb64=uidb64, token=token)
+
