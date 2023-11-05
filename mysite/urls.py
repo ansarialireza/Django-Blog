@@ -21,7 +21,6 @@ from webapp.views import *
 from django.contrib.sitemaps.views import sitemap
 from webapp.sitemaps import StaticViewSitemap
 from blog.sitemaps import BlogSitemap
-from django.views.generic import TemplateView
 sitemaps = {
     "static": StaticViewSitemap,
     'blog': BlogSitemap

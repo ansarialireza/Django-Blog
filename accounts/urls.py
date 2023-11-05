@@ -9,7 +9,5 @@ urlpatterns = [
     path('logout/', views.logout_view, name='logout'),
     
     path('password_reset/', views.custom_password_reset, name='password_reset'),
-    # path('password_reset/done/', views.custom_password_reset_done, name='password_reset_done'),
     path('accounts/password_reset/confirm/<uidb64>/<token>/', views.custom_password_reset_confirm, name='custom_password_reset_confirm'),
-    # path('reset/done/', views.custom_password_reset_complete, name='password_reset_complete'),
 ]

@@ -42,3 +42,6 @@ def newsletter(request):
         form = NewsletterForm()
 
     return HttpResponseRedirect('/')
+
+
+

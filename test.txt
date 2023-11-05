@@ -1,0 +1,99 @@
+UserType
+
+Library Management System
+
+Username
+
+Password
+
+Login ()
+
+Register ()
+
+Logout()
+
+1
+
+User
+
+Book
+
+Name
+
+10
+
+Verity ()
+
+CheckAccount()
+
+get_book_info()
+
+Title
+
+Staff
+
+Dept
+
+Student Class
+
+Author
+
+ISBN
+
+Publication
+
+Show duedt ()
+
+Reservation_status()
+
+Feedback ()
+
+Book_request()
+
+no_lost_books
+
+Renw info()
+
+11
+
+Library database
+
+fine amount
+
+Calculate fine ()
+
+CLASS DIAGRAM FOR LIBRARY MANAGEMENT SYSTEM
+
+Librarian
+
+Name
+
+ID
+
+List of books
+
+Password
+
+SearchString
+
+Add()
+
+Delete ()
+
+Verify librarian ()
+
+Search ()
+
+Account
+
+no_borrowed_books
+
+no reserved books
+
+no_returned_books
+
+Update ()
+
+Display ()
+
+Search (1
