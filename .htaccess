@@ -1,0 +1,7 @@
+RewriteEngine on
+
+RewriteCond %{HTTP_HOST} ^www\.domain\.ir$
+RewriteRule ^(.*)$ https://domain.ir/$1 [R=302,L]
+
+RewriteCond %{HTTP_HOST} ^domain\.ir$
+RewriteRule ^(.*)$ https://domain.ir/$1 [R=302,L]

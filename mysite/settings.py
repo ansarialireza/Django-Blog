@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'taggit',
     'django_summernote',
     'captcha',
+    'compressor',
 ]
 
 MULTI_CAPTCHA_ADMIN = {
@@ -155,3 +156,20 @@ AUTHENTICATION_BACKENDS = [
     # ... other backends ...
 ]
 
+COMPRESSOR_BACKEND = 'compressor.backends.htmlmin.HtmlMinCompressor'
+
+# Enable or disable the compressor
+COMPRESS_ENABLED = True
+STATIC_DEPS=True
+COMPRESS_URL = '/static/'
+# Add the following settings if you want to use precompilers for CSS and JS
+COMPRESS_PRECOMPILERS = (
+    ('text/x-scss', 'django_libsass.SassCompiler'),
+    ('text/javascript', 'babel --presets es2015,react {infile} -o {outfile}'),
+)
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    # other finders..
+    'compressor.finders.CompressorFinder',
+)
